@@ -16,6 +16,7 @@ def build_zip():
     run_python_script("./PYBuilder/PYBuilder.py")
     run_python_script("./PYBuilder/zipper.py")
     shutil.rmtree("./dist/")
+    shutil.rmtree("./ETB Mod Loader/")
     print(f'[Main] Finished in {start_time - time.time()}s')
     print('[Main] results in: zipped')
 
