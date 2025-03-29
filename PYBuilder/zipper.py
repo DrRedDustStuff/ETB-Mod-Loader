@@ -1,19 +1,19 @@
 import os
+import json
 import shutil
 import time
-#############################
-#         Disclaimer        #
-#  this zipper is only for  #
-#   ETB Mod Loader - exe    #
-#     and its subfiles      #
-#############################
-old = time.time()
-## assume zip and files exists ##
-try:os.mkdir("./ETB Mod Loader/")
-except Exception as exception:print(exception)
-shutil.copy("./dist/ETB Mod Loader.exe", "./ETB Mod Loader/ETB Mod Loader.exe")
-shutil.make_archive("ETB Mod Loader", "zip", "./ETB Mod Loader/")
-shutil.move("./ETB Mod Loader.zip", "./zipped/ETB Mod Loader.zip")
-shutil.rmtree("./ETB Mod Loader")
-print("done in " + str(old - time.time()))
+start_time = time.time()
+jsn = json.loads(open("./PYBuilder/build.json").read())
+save_as = jsn.get("save-as")
+try:
+    os.mkdir(f"./{save_as}/")
+    shutil.copytree("./files/",f"./{save_as}/files/")
+except Exception as exception:print(f"[Sub] [Zipper] {exception}")
+with open(f"./{save_as}/{save_as}.exe", 'w') as file:
+    file.close()
+shutil.copy(f"./dist/{save_as}.exe", f"./{save_as}/{save_as}.exe")
+shutil.make_archive(f"{save_as}", "zip", f"./{save_as}/")
+shutil.move(f"./{save_as}.zip", f"./zipped/{save_as}.zip")
+shutil.rmtree(f"./{save_as}")
+print(f"[Sub] [Zipper] Finished in {time.time() - start_time}")
 exit(0)

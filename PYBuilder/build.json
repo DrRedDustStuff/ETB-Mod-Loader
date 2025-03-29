@@ -1,7 +1,6 @@
 {
-    "compile":"./main.py",
-    "compile-as":"ETB Mod Loader",
+    "script":"./main.py",
+    "save-as":"ETB Mod Loader",
     "icon-file":"./files/icon.ico",
-    "gui":"True",
-    "":""
+    "gui":"True"
 }
