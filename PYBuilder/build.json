@@ -1,0 +1,7 @@
+{
+    "compile":"./main.py",
+    "compile-as":"ETB Mod Loader",
+    "icon-file":"./files/icon.ico",
+    "gui":"True",
+    "":""
+}
